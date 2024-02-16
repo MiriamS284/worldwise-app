@@ -8,6 +8,7 @@ const CitiesContext = createContext();
 function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentCity, setCurrentCity] = useState();
 
   useEffect(function () {
     async function fetchCities() {
@@ -25,11 +26,43 @@ function CitiesProvider({ children }) {
     fetchCities();
   }, []);
 
+  async function getCity(id) {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`${BASE_URL}/cities/${id}`);
+      const data = await res.json();
+      setCurrentCity(data);
+    } catch {
+      alert("There was an error loading data...");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  // Added getFlag function
+  const getFlag = (flag) => {
+    if (!flag) return null; // Handle cases where flag might not be provided
+    let countryCode = Array.from(flag)
+      .map((codeUnit) =>
+        String.fromCharCode(codeUnit.codePointAt() - 127397).toLowerCase()
+      )
+      .join("");
+    return (
+      <img
+        src={`https://flagcdn.com/24x18/${countryCode}.png`}
+        alt="Country flag"
+      />
+    );
+  };
+
   return (
     <CitiesContext.Provider
       value={{
         cities,
         isLoading,
+        currentCity,
+        getCity,
+        getFlag,
       }}
     >
       {children}

@@ -11,9 +11,9 @@ function Button({ children, onClick, type }) {
 
 // Defining PropTypes
 Button.propTypes = {
-  children: PropTypes.node.isRequired, // `node` covers anything that can be rendered: numbers, strings, elements or an array containing these types
-  onClick: PropTypes.func, // `func` since onClick should be a function, but it's not marked as required in case you want buttons without an onClick handler
-  type: PropTypes.string, // `string` to match the CSS class name keys, not marked as required assuming you have default styling without a type
+  children: PropTypes.node.isRequired,
+  onClick: PropTypes.func,
+  type: PropTypes.string,
 };
 
 export default Button;
