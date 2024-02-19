@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   MapContainer,
   TileLayer,
@@ -13,34 +13,26 @@ import { useState, useEffect } from "react";
 import { useCities } from "../contexts/CitiesContext";
 import { useGeolocation } from "../hooks/useGeolocation";
 import Button from "./Button";
+import { useUrlPosition } from "../hooks/useUrlPosition";
 
 function Map() {
   const [mapPosition, setMapPosition] = useState([40, 0]);
   const { cities, getFlag } = useCities();
-  const [searchParams] = useSearchParams();
   const {
     isLoading: isLoadingPosition,
     position: geolocationPosition,
     getPosition,
   } = useGeolocation();
+  const [lat, lng] = useUrlPosition();
 
   useEffect(() => {
-    const mapLat = parseFloat(searchParams.get("lat"));
-    const mapLng = parseFloat(searchParams.get("lng"));
+    const parsedLat = parseFloat(lat);
+    const parsedLng = parseFloat(lng);
 
-    if (!isNaN(mapLat) && !isNaN(mapLng)) {
-      setMapPosition([mapLat, mapLng]);
+    if (!isNaN(parsedLat) && !isNaN(parsedLng)) {
+      setMapPosition([parsedLat, parsedLng]);
     }
-  }, [searchParams]);
-
-  /*
-  useEffect(
-    function() {
-      if(mapLat && mapLng) setMapPosition([mapLat, mapLng]);
-    },
-    [mapLat, mapLng]
-  );
-  */
+  }, [lat, lng]);
 
   useEffect(() => {
     if (geolocationPosition) {
@@ -57,7 +49,6 @@ function Map() {
       )}
       <MapContainer
         center={mapPosition}
-        //center={[mapLat, mapLng]}
         zoom={6}
         scrollWheelZoom={true}
         className={styles.map}
@@ -83,6 +74,7 @@ function Map() {
     </div>
   );
 }
+
 ChangeCenter.propTypes = {
   position: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
@@ -100,4 +92,5 @@ function DetectClick() {
     click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
   });
 }
+
 export default Map;

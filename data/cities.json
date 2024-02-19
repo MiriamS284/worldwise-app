@@ -1,18 +1,6 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": 73930385
-    },
-    {
       "cityName": "Madrid",
       "country": "Spain",
       "emoji": "🇪🇸",
@@ -35,6 +23,42 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Chipilly",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2024-02-19T12:06:34.220Z",
+      "notes": "super cool",
+      "position": {
+        "lat": "49.92293545449574",
+        "lng": "2.6367187500000004"
+      },
+      "id": 98443202
+    },
+    {
+      "cityName": "Pineda de la Sierra",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-02-19T14:18:48.892Z",
+      "notes": "",
+      "position": {
+        "lat": "42.19596877629178",
+        "lng": "-3.27392578125"
+      },
+      "id": 98443203
+    },
+    {
+      "cityName": "In Salah",
+      "country": "Algeria",
+      "emoji": "🇩🇿",
+      "date": "2024-02-19T14:19:06.649Z",
+      "notes": "",
+      "position": {
+        "lat": "27.800209937418252",
+        "lng": "2.9882812500000004"
+      },
+      "id": 98443204
     }
   ]
 }
