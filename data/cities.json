@@ -1,18 +1,6 @@
 {
   "cities": [
     {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
-      "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": 17806751
-    },
-    {
       "cityName": "Berlin",
       "country": "Germany",
       "emoji": "🇩🇪",
@@ -49,14 +37,14 @@
       "id": 98443203
     },
     {
-      "cityName": "In Salah",
-      "country": "Algeria",
-      "emoji": "🇩🇿",
-      "date": "2024-02-19T14:19:06.649Z",
+      "cityName": "Venialbo",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-02-20T09:55:34.421Z",
       "notes": "",
       "position": {
-        "lat": "27.800209937418252",
-        "lng": "2.9882812500000004"
+        "lat": "41.32732632036624",
+        "lng": "-5.51513671875"
       },
       "id": 98443204
     }

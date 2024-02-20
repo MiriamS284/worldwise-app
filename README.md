@@ -2,6 +2,10 @@
 
 WorldWise is a React-based application designed to provide users with detailed information about cities around the globe. Leveraging the power of React hooks and context, it offers a dynamic and responsive user experience, allowing users to explore, add, and delete city information in real-time.
 
+![Homepage](/public/screenshot/home.png "home")
+![Login](/public/screenshot/login.png "login")
+![UI Experience](/public/screenshot/experience.png "UI/UX")
+
 ## Technologies Used
 
 React (Hooks, Context)
@@ -70,3 +74,27 @@ On selecting a city, displays detailed information including a generated flag re
 
 Error Handling
 Displays error messages to users if any operations fail, improving user experience and debugging ease.
+
+Fake Authentication and Login Functionality
+This application includes a mock authentication mechanism to simulate user login and logout workflows without the need for an actual backend service. This approach allows us to develop and test protected routes and user authentication scenarios.
+
+Fake Authentication Context (FakeAuthContext.jsx): This context provides a central point for managing authentication state throughout the application. It utilizes React's Context API and the useReducer hook to handle authentication states (isAuthenticated and user) and actions (login and logout).
+
+Login Functionality: The login process is simulated by comparing the entered credentials against a hardcoded user object (FAKE_USER). If the credentials match, the authentication state is updated to reflect that a user is logged in. This is achieved by dispatching a login action, which updates the user and isAuthenticated state.
+
+Logout Functionality: The logout process is straightforward, resetting the authentication state. Dispatching a logout action sets the user state to null and isAuthenticated to false, effectively logging the user out.
+
+FAKE_USER: A predefined user object that includes basic information such as name, email, and a mock avatar URL. This object is used to validate login attempts.
+
+Reducer Function: Handles actions related to authentication, updating the application's state based on the action type (login or logout).
+
+login and logout Functions: These functions dispatch actions to update the application's state to reflect the user's authentication status.
+
+#### Protected Routes
+
+Protected routes ensure that certain parts of the application are accessible only to authenticated users. This is implemented using a ProtectedRoute component that wraps around any routes that require authentication.
+
+How It Works
+The ProtectedRoute component checks the authentication state (isAuthenticated). If the user is not authenticated, it redirects them to the login page. Otherwise, it renders the child components, allowing the user access to the protected content.
+
+This mechanism is crucial for creating a secure user experience, preventing unauthorized access to certain areas of the application.
