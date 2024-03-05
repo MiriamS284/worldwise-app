@@ -1,6 +1,6 @@
 # WorldWise App
 
-WorldWise is a React-based application designed to provide users with detailed information about cities around the globe. Leveraging the power of React hooks and context, it offers a dynamic and responsive user experience, allowing users to explore, add, and delete city information in real-time.
+WorldWise is a React-based single-page application (SPA) designed to provide users with detailed information about cities around the globe. Leveraging the power of React hooks and context, it offers a dynamic and responsive user experience, allowing users to explore, add, and delete city information in real-time.
 
 ![Homepage](/public/screenshot/home.png "home")
 ![Login](/public/screenshot/login.png "login")
@@ -9,10 +9,13 @@ WorldWise is a React-based application designed to provide users with detailed i
 ## Technologies Used
 
 React (Hooks, Context)
+React Router
+Context API
 JavaScript (ES6+)
 CSS
 HTML
 Fetch API for asynchronous requests
+PropTypes
 
 ### Installation
 
